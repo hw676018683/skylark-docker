@@ -1,0 +1,10 @@
+---
+:concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] %>
+production:
+  :concurrency: <%= ENV['SIDEKIQ_CONCURRENCY'] %>
+:queues:
+  - [push, 4]
+  - [high, 3]
+  - [default, 2]
+  - [cache, 1]
+  - [chewy, 1]

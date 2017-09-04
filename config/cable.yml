@@ -1,0 +1,10 @@
+redis: &redis
+  adapter: redis
+  url: <%= ENV['CABLE_REDIS_URL'] %>
+
+development: *redis
+
+test:
+  adapter: async
+
+production: *redis

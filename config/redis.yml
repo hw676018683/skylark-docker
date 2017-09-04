@@ -1,0 +1,15 @@
+defaults: &defaults
+  host: <%= ENV['REDIS_URL'] %>
+  port: <%= ENV['REDIS_PORT'] %>
+  dbs:
+    mini_profiler: 1
+    model: 5
+    sidekiq: 12
+    cable: 14
+    weixin_authorize: 15
+development:
+  <<: *defaults
+test:
+  <<: *defaults
+production:
+  <<: *defaults
