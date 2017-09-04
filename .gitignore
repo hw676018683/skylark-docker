@@ -1,2 +1,7 @@
+data/
+log/
+shared/
+tmp/
+
 images/production/skylark.tar.gz
 app.local.env

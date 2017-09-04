@@ -1,0 +1,85 @@
+version: '3'
+services:
+  db:
+    container_name: 'slp_postgresql'
+    image: postgres:9.5-alpine
+    env_file:
+      - app.default.env
+      - app.local.env
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql/data
+    ports:
+      - '5432'
+
+  redis:
+    container_name: 'slp_redis'
+    image: redis:3.2-alpine
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - '6379'
+
+  memcached:
+    container_name: 'slp_memcached'
+    image: memcached:1.5.1-alpine
+    ports:
+      - '11211'
+
+  elasticsearch:
+    container_name: 'slp_elasticsearch'
+    image: skylark/elasticsearch:latest
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - '9200'
+      - '9300'
+
+  web:
+    container_name: 'slp_web'
+    image: skylark/production:latest
+    env_file:
+      - app.default.env
+      - app.local.env
+    depends_on:
+      - app
+      - sidekiq
+    command: nginx -c /etc/nginx/nginx.conf
+    ports:
+      - '80'
+      - '443'
+
+  app: &app_base
+    image: skylark/production:latest
+    env_file:
+      - app.default.env
+      - app.local.env
+    depends_on:
+      - db
+      - redis
+      - memcached
+      - elasticsearch
+    volumes:
+      - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./etc/nginx/skylark.conf:/etc/nginx/conf.d/skylark
+      - ./config/cable.yml:/var/www/skylark/config/cable.yml
+      - ./config/chewy.yml:/var/www/skylark/config/chewy.yml
+      - ./config/database.yml:/var/www/skylark/config/database.yml
+      - ./config/puma.rb:/var/www/skylark/config/puma.rb
+      - ./config/redis.yml:/var/www/skylark/config/redis.yml
+      - ./config/secrets.yml:/var/www/skylark/config/secrets.yml
+      - ./config/settings.yml:/var/www/skylark/config/settings.yml
+      - ./config/sidekiq.yml:/var/www/skylark/config/sidekiq.yml
+      - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./tmp/pids:/var/www/pids
+      - ./tmp:/var/www/skylark/tmp
+      - ./log:/var/www/log
+      - ./log:/var/www/skylark/log
+    command: bundle exec puma -C config/puma.rb
+    ports:
+      - '3000'
+
+  sidekiq:
+    <<: *app_base
+    container_name: 'slp_sidekiq'
+    command: bundle exec sidekiq -C config/sidekiq.yml -L /var/www/skylark/log/sidekiq.log
+    ports: []

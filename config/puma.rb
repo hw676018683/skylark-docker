@@ -1,6 +1,6 @@
-pidfile    '/var/www/skylark/tmp/puma.pid'
-state_path '/var/www/skylark/tmp/puma.state'
-bind       'unix:/var/www/skylark/tmp/puma.sock'
+pidfile    '/var/www/pids/puma.pid'
+state_path '/var/www/pids/puma.state'
+bind       'unix:/var/www/pids/skylark.sock'
 daemonize  false
 
 threads_count = ENV.fetch('PUMA_MAX_THREADS') { 5 }
