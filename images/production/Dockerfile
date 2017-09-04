@@ -17,3 +17,4 @@ RUN chown -R skylark:skylark /var/www/skylark
 USER skylark
 RUN bundle install --deployment --without test --without development -j4 && \
     find /var/www/skylark/vendor/bundle -name tmp -type d -exec rm -rf {} +
+USER root
