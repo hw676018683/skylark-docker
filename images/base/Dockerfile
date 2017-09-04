@@ -14,6 +14,8 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install curl \
                        git-core \
                        build-essential \
+                       redis-tools \
+                       libpq-dev \
                        libssl-dev libreadline-dev zlib1g-dev \
                        nodejs \
                        graphicsmagick \
