@@ -1,0 +1,4 @@
+#!/bin/bash -eux
+
+docker-compose run app bundle exec rails db:migrate
+docker-compose run app bundle exec rails assets:precompile

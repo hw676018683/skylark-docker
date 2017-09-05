@@ -1,0 +1,3 @@
+#!/bin/bash -eux
+
+docker-compose up -d
