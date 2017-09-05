@@ -49,6 +49,7 @@ services:
       - ./etc/nginx/skylark.conf:/etc/nginx/conf.d/skylark.conf
       - ./tmp/pids:/var/www/pids
       - ./log:/var/www/log
+      - ./shared/public:/var/www/skylark/public
     ports:
       - '80:80'
       - '443:443'
