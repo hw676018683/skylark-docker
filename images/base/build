@@ -1,1 +1,1 @@
-docker build -t skylark/base:latest .
+docker build -t skylark/base:2.3.1-ubuntu .

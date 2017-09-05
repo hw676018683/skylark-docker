@@ -1,1 +1,1 @@
-docker build -t skylark/elasticsearch:latest .
+docker build -t skylark/elasticsearch:5.5.2-alpine .
