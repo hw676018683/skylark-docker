@@ -73,6 +73,7 @@ services:
       - ./config/settings.yml:/var/www/skylark/config/settings.yml
       - ./config/sidekiq.yml:/var/www/skylark/config/sidekiq.yml
       - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./shared/public/uploads:/var/www/skylark/public/uploads
       - ./tmp:/var/www/skylark/tmp
       - ./log:/var/www/skylark/log
       - ./tmp/pids:/var/www/pids
