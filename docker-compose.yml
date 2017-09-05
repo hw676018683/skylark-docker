@@ -8,7 +8,7 @@ services:
       - app.local.env
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
-    ports:
+    expose:
       - '5432'
 
   redis:
@@ -16,13 +16,13 @@ services:
     image: redis:3.2-alpine
     volumes:
       - ./data/redis:/data
-    ports:
+    expose:
       - '6379'
 
   memcached:
     container_name: 'slp_memcached'
     image: memcached:1.5.1-alpine
-    ports:
+    expose:
       - '11211'
 
   elasticsearch:
@@ -30,7 +30,7 @@ services:
     image: skylark/elasticsearch:latest
     volumes:
       - ./data/elasticsearch:/usr/share/elasticsearch/data
-    ports:
+    expose:
       - '9200'
       - '9300'
 
@@ -45,8 +45,8 @@ services:
       - sidekiq
     command: nginx -c /etc/nginx/nginx.conf
     ports:
-      - '80'
-      - '443'
+      - '80:80'
+      - '443:443'
 
   app: &app_base
     image: skylark/production:latest
@@ -75,11 +75,11 @@ services:
       - ./log:/var/www/log
       - ./log:/var/www/skylark/log
     command: bundle exec puma -C config/puma.rb
-    ports:
+    expose:
       - '3000'
 
   sidekiq:
     <<: *app_base
     container_name: 'slp_sidekiq'
     command: bundle exec sidekiq -C config/sidekiq.yml -L /var/www/skylark/log/sidekiq.log
-    ports: []
+    expose: []
