@@ -117,6 +117,10 @@ defaults: &defaults
     api_base: <%= ENV['SETTING_JUHE_API_BASE'] %>
     key: <%= ENV['SETTING_JUHE_KEY'] %>
 
+  xundao:
+    client_id: <%= ENV['SETTING_XUNDAO_CLIENT_ID'] %>
+    client_secret: <%= ENV['SETTING_XUNDAO_CLIENT_SECRET'] %>
+
 development:
   <<: *defaults
 
