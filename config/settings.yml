@@ -88,6 +88,10 @@ defaults: &defaults
       organization_application: <%= ENV['SETTING_ALIYUN_TTS_CODES_ORGANIZATION_APPLICATION'] %>
       response: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE'] %>
 
+  xundao:
+    client_id: <%= ENV['SETTING_XUNDAO_CLIENT_ID'] %>
+    client_secret: <%= ENV['SETTING_XUNDAO_CLIENT_SECRET'] %>
+
 development:
   <<: *defaults
 
