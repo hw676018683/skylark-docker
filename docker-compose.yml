@@ -49,7 +49,9 @@ services:
       - ./etc/nginx/skylark.conf:/etc/nginx/conf.d/skylark.conf
       - ./tmp/pids:/var/www/pids
       - ./log:/var/www/log
-      - ./shared/public:/var/www/skylark/public
+      - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./shared/public/exportable_files:/var/www/skylark/public/exportable_files
+      - ./shared/public/uploads:/var/www/skylark/public/uploads
     ports:
       - '80:80'
       - '443:443'
@@ -73,11 +75,12 @@ services:
       - ./config/secrets.yml:/var/www/skylark/config/secrets.yml
       - ./config/settings.yml:/var/www/skylark/config/settings.yml
       - ./config/sidekiq.yml:/var/www/skylark/config/sidekiq.yml
-      - ./shared/public/assets:/var/www/skylark/public/assets
-      - ./shared/public/uploads:/var/www/skylark/public/uploads
       - ./tmp:/var/www/skylark/tmp
       - ./log:/var/www/skylark/log
       - ./tmp/pids:/var/www/pids
+      - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./shared/public/exportable_files:/var/www/skylark/public/exportable_files
+      - ./shared/public/uploads:/var/www/skylark/public/uploads
     command: bundle exec puma -C config/puma.rb
     expose:
       - '3000'
