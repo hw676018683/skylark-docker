@@ -1,4 +1,5 @@
-#!/bin/bash -eux
+#!/usr/bin/env bash
+set -eux
 
 touch app.local.env
 docker-compose build
