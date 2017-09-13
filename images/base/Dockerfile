@@ -6,7 +6,7 @@ MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 RUN echo 2.0.`date +%Y%m%d` > /VERSION
 
-ENV RUBY_VERSION 2.3.1
+ENV RUBY_VERSION=2.3.1
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.163.com/g' /etc/apt/sources.list
 RUN apt-get update && apt-get -y upgrade
