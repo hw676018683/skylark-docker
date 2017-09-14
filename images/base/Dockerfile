@@ -6,7 +6,7 @@ MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 RUN echo 2.0.`date +%Y%m%d` > /VERSION
 
-ENV RUBY_VERSION 2.3.1
+ENV RUBY_VERSION=2.3.1
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.163.com/g' /etc/apt/sources.list
 RUN apt-get update && apt-get -y upgrade
@@ -31,7 +31,7 @@ RUN find /usr/lib -name type.mgk -type f -exec cp /tmp/type.mgk {} +
 ENV RUBY_BUILD_MIRROR_URL=https://cache.ruby-china.org
 RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc && \
     mkdir /src && cd /src && \
-    git clone https://github.com/sstephenson/ruby-build.git && \
+    git clone https://github.com/rbenv/ruby-build.git && \
     cd /src/ruby-build && ./install.sh && \
     cd / && rm -rf /src/ruby-build && \
     ruby-build $RUBY_VERSION /usr/local/
