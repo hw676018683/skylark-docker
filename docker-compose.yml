@@ -89,3 +89,4 @@ services:
     <<: *app_base
     container_name: 'slp_sidekiq'
     command: bundle exec sidekiq -C config/sidekiq.yml -L /var/www/skylark/log/sidekiq.log
+    expose: []
