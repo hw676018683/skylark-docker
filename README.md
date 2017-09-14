@@ -9,6 +9,13 @@ wget -qO- https://get.docker.com/ | sh
 ```
 This command installs the latest versions of Docker and Git on your server. Alternately, you can manually [install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and the [Docker package for your OS](https://docs.docker.com/installation/).
 
+Change docker mirror to docker-cn, add the below json into `/etc/docker/daemon.json`, and run `sudo service docker restart` to restart docker.
+```json
+{
+  "registry-mirrors": ["https://registry.docker-cn.com"]
+}
+```
+
 ## Install Docker Compose
 ```bash
 curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
