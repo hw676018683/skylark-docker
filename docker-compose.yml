@@ -36,7 +36,7 @@ services:
 
   web:
     container_name: 'slp_web'
-    image: registry.cn-hangzhou.aliyuncs.com/skylark/production:v2.6.5
+    image: registry.cn-hangzhou.aliyuncs.com/skylark/production:v2.6.5.2
     env_file:
       - app.default.env
       - app.local.env
@@ -57,7 +57,7 @@ services:
       - '443:443'
 
   app: &app_base
-    image: registry.cn-hangzhou.aliyuncs.com/skylark/production:v2.6.5
+    image: registry.cn-hangzhou.aliyuncs.com/skylark/production:v2.6.5.2
     env_file:
       - app.default.env
       - app.local.env
