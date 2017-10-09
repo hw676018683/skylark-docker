@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-SLP_VERSION=vfix-file-entries
+SLP_VERSION=v2.6.6
 
 # echo "Downloading skylark"
 # wget -O skylark.tar.gz https://github.com/GreenNerd/skylark/archive/$SLP_VERSION.tar.gz
 # echo "Download completed"
 
 echo "Building the production image"
-docker build -t skylark/production:v2.6.5.2 .
+docker build -t skylark/production:$SLP_VERSION .
