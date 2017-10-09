@@ -42,6 +42,8 @@ defaults: &defaults
     verify_code_tpl_id: <%= ENV['SETTING_YUNPIAN_VERIFY_CODE_TPL_ID'] %>
     subscription:
       comment_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_COMMENT_TPL_ID'] %>
+      response_created_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_CREATED_TPL_ID'] %>
+      response_updated_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_UPDATED_TPL_ID'] %>
       response_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_TPL_ID'] %>
       organization_application_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_ORGANIZATION_APPLICATION_TPL_ID'] %>
       bunch_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_BUNCH_TPL_ID'] %>
@@ -86,7 +88,8 @@ defaults: &defaults
       message: <%= ENV['SETTING_ALIYUN_TTS_CODES_MESSAGE'] %>
       comment: <%= ENV['SETTING_ALIYUN_TTS_CODES_COMMENT'] %>
       organization_application: <%= ENV['SETTING_ALIYUN_TTS_CODES_ORGANIZATION_APPLICATION'] %>
-      response: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE'] %>
+      response_created: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_CREATED'] %>
+      response_updated: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_UPDATED'] %>
 
 development:
   <<: *defaults
