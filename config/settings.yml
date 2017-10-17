@@ -91,6 +91,9 @@ defaults: &defaults
       response_created: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_CREATED'] %>
       response_updated: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_UPDATED'] %>
 
+  jwt:
+    las_vegas: <%= ENV['SETTING_JWT_LAS_VEGAS'] %>
+
 development:
   <<: *defaults
 
