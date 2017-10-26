@@ -8,7 +8,7 @@ threads        threads_count, threads_count
 workers        ENV.fetch('PUMA_WEB_CONCURRENCY') { 2 }
 worker_timeout ENV.fetch('PUMA_WEB_WORKER_TIMEOUT') { 60 }.to_i
 
-environment ENV.fetch('RAILS_ENV') { 'development' }
+environment ENV.fetch('RAILS_ENV') { 'production' }
 port        ENV.fetch('PUMA_PORT') { 3000 }
 
 preload_app!
