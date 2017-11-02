@@ -8,4 +8,4 @@ SLP_VERSION=v2.6.7
 # echo "Download completed"
 
 echo "Building the production image"
-docker build -t skylark/production:$SLP_VERSION .
+docker build -t registry.cn-hangzhou.aliyuncs.com/skylark/production:$SLP_VERSION .
