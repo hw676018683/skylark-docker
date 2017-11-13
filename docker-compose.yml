@@ -27,7 +27,7 @@ services:
 
   elasticsearch:
     container_name: 'slp_elasticsearch'
-    image: dockerhub.qingcloud.com/skylark/elasticsearch:5.5.2-alpine
+    image: fahchen/elasticsearch-analysis-ik:5.6.3-alpine
     volumes:
       - ./data/elasticsearch:/usr/share/elasticsearch/data
     expose:
