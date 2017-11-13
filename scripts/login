@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -eu
+
+echo -n 'Enter username and press [ENTER]: '
+read username
+
+docker login --username=$username dockerhub.qingcloud.com
