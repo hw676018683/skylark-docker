@@ -36,7 +36,7 @@ services:
 
   web:
     container_name: 'slp_web'
-    image: dockerhub.qingcloud.com/skylark/production:v2.6.8
+    image: dockerhub.qingcloud.com/skylark/production:tcyx-fork-2.6.9.3
     env_file:
       - app.default.env
       - app.local.env
@@ -57,7 +57,7 @@ services:
       - '443:443'
 
   app: &app_base
-    image: dockerhub.qingcloud.com/skylark/production:v2.6.8
+    image: dockerhub.qingcloud.com/skylark/production:tcyx-fork-2.6.9.3
     env_file:
       - app.default.env
       - app.local.env
