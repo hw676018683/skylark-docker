@@ -1,7 +1,7 @@
 # NAME:    skylark/base
 # VERSION: release
 
-FROM registry.cn-hangzhou.aliyuncs.com/skylark/base:2.3.1-ubuntu.0914
+FROM dockerhub.qingcloud.com/skylark/base:2.3.1-ubuntu.0914
 MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 # Skylark specific bits
