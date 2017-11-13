@@ -6,7 +6,7 @@ MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 RUN echo 2.0.`date +%Y%m%d` > /VERSION
 
-ENV RUBY_VERSION=2.3.1
+ENV RUBY_VERSION=2.4.2
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.163.com/g' /etc/apt/sources.list
 RUN apt-get update && apt-get -y upgrade
@@ -36,7 +36,7 @@ RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc && \
     cd / && rm -rf /src/ruby-build && \
     ruby-build $RUBY_VERSION /usr/local/
 
-RUN gem update --system && gem install bundler && gem cleanup
+RUN gem install bundler && gem cleanup
 
 
 # clean up for docker squash
