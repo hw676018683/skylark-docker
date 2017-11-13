@@ -1,0 +1,9 @@
+defaults: &defaults
+  host: <%= ENV['CHEWY_HOST'] %>
+test:
+  <<: *defaults
+  prefix: 'test'
+development:
+  <<: *defaults
+production:
+  <<: *defaults
