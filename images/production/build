@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-SLP_VERSION=tcyx-fork-2.6.14
+SLP_VERSION=tcyx-fork-2.6.15
 
 # echo "Downloading skylark"
 # wget -O skylark.tar.gz https://github.com/GreenNerd/skylark/archive/$SLP_VERSION.tar.gz
