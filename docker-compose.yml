@@ -81,6 +81,7 @@ services:
       - ./shared/public/assets:/var/www/skylark/public/assets
       - ./shared/public/exportable_files:/var/www/skylark/public/exportable_files
       - ./shared/public/uploads:/var/www/skylark/public/uploads
+      - ./shared/uploads:/var/www/skylark/uploads
     command: bundle exec puma -C config/puma.rb
     expose:
       - '3000'
