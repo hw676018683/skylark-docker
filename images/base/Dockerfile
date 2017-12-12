@@ -19,7 +19,6 @@ RUN apt-get -y install curl \
                        libssl-dev libreadline-dev zlib1g-dev \
                        nodejs \
                        graphicsmagick \
-                       nginx \
                        tzdata
 
 COPY resources/华文黑体.ttf /usr/share/fonts/truetype/
