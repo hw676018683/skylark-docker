@@ -21,6 +21,10 @@ RUN apt-get -y install curl \
                        graphicsmagick \
                        tzdata
 
+ADD install-nginx /tmp/install-nginx
+RUN chmod 744 /tmp/install-nginx
+RUN /tmp/install-nginx
+
 COPY resources/华文黑体.ttf /usr/share/fonts/truetype/
 COPY resources/type.mgk /tmp/
 COPY resources/type-windows.mgk /tmp/
