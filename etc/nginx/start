@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -eux
+
+erb /tmp/skylark-$NGINX_SERVER_PROTO.conf.erb > /etc/nginx/conf.d/skylark.conf
+nginx -c /etc/nginx/nginx.conf
