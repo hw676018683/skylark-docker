@@ -2,6 +2,7 @@ data/
 log/
 shared/
 tmp/
+etc/ssl/
 
 images/production/skylark*
 
