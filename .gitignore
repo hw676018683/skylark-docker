@@ -3,5 +3,6 @@ log/
 shared/
 tmp/
 
-images/production/skylark.tar.gz
+images/production/skylark*
+
 app.local.env

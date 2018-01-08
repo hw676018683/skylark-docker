@@ -36,7 +36,7 @@ services:
 
   web:
     container_name: 'slp_web'
-    image: nginx:1.13.7
+    image: dockerhub.qingcloud.com/skylark/production:2.6.15
     env_file:
       - app.default.env
       - app.local.env
