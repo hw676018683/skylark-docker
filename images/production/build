@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-SLP_VERSION=2.6.15
-
 # echo "Downloading skylark"
 # wget -O skylark.tar.gz https://github.com/GreenNerd/skylark/archive/$SLP_VERSION.tar.gz
 # echo "Download completed"
