@@ -6,5 +6,5 @@ server {
   listen 80 default_server;
   server_name <%= ENV['NGINX_SERVER_NAME'] %>;
 
-  include /etc/nginx/skylark-base.conf;
+  include /etc/nginx/skylark/*.conf;
 }
