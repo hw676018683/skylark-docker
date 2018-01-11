@@ -34,20 +34,6 @@ defaults: &defaults
         domain: <%= ENV['SETTING_QINIU_MATERIAL_IMAGE_DOMAIN'] %>
         size: <%= ENV['SETTING_QINIU_MATERIAL_IMAGE_SIZE'] %>
 
-  yunpian:
-    api_key: <%= ENV['SETTING_YUNPIAN_API_KEY'] %>
-    tpl_id: <%= ENV['SETTING_YUNPIAN_TPL_ID'] %>
-    involved_tpl_id: <%= ENV['SETTING_YUNPIAN_INVOLVED_TPL_ID'] %>
-    tpl_id_with_short_url: <%= ENV['SETTING_YUNPIAN_TPL_ID_WITH_SHORT_URL'] %>
-    verify_code_tpl_id: <%= ENV['SETTING_YUNPIAN_VERIFY_CODE_TPL_ID'] %>
-    subscription:
-      comment_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_COMMENT_TPL_ID'] %>
-      response_created_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_CREATED_TPL_ID'] %>
-      response_updated_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_UPDATED_TPL_ID'] %>
-      response_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_TPL_ID'] %>
-      organization_application_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_ORGANIZATION_APPLICATION_TPL_ID'] %>
-      bunch_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_BUNCH_TPL_ID'] %>
-
   slack_notifier:
     webhook_url: <%= ENV['SETTING_SLACK_NOTIFIER_WEBHOOK_URL'] %>
     channel: <%= ENV['SETTING_SLACK_NOTIFIER_CHANNEL'] %>
@@ -71,6 +57,8 @@ defaults: &defaults
     default_site_name: <%= ENV['SETTING_APP_DEFAULT_SITE_NAME'] %>
     max_sidekiq_usage: <%= ENV['SETTING_APP_MAX_SIDEKIQ_USAGE'] %>
     asset_host: <%= ENV['SETTING_APP_ASSET_HOST'] %>
+    sentry_dsn: <%= ENV['SETTING_APP_SENTRY_DSN'] %>
+    sms_privoder: <%= ENV['SETTING_APP_SMS_PRIVODER'] %>
 
   exportable_file:
     max_cells: <%= ENV['SETTING_EXPORTABLE_FILE_MAX_CELLS'] %>
@@ -79,6 +67,20 @@ defaults: &defaults
   amap:
     js_key: <%= ENV['SETTING_AMAP_JS_KEY'] %>
     web_key: <%= ENV['SETTING_AMAP_WEB_KEY'] %>
+
+  yunpian:
+    api_key: <%= ENV['SETTING_YUNPIAN_API_KEY'] %>
+    tpl_id: <%= ENV['SETTING_YUNPIAN_TPL_ID'] %>
+    involved_tpl_id: <%= ENV['SETTING_YUNPIAN_INVOLVED_TPL_ID'] %>
+    tpl_id_with_short_url: <%= ENV['SETTING_YUNPIAN_TPL_ID_WITH_SHORT_URL'] %>
+    verify_code_tpl_id: <%= ENV['SETTING_YUNPIAN_VERIFY_CODE_TPL_ID'] %>
+    subscription:
+      comment_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_COMMENT_TPL_ID'] %>
+      response_created_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_CREATED_TPL_ID'] %>
+      response_updated_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_UPDATED_TPL_ID'] %>
+      response_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_RESPONSE_TPL_ID'] %>
+      organization_application_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_ORGANIZATION_APPLICATION_TPL_ID'] %>
+      bunch_tpl_id: <%= ENV['SETTING_YUNPIAN_SUBSCRIPTION_BUNCH_TPL_ID'] %>
 
   aliyun:
     access_key_id: <%= ENV['SETTING_ALIYUN_ACCESS_KEY_ID'] %>
@@ -90,6 +92,22 @@ defaults: &defaults
       organization_application: <%= ENV['SETTING_ALIYUN_TTS_CODES_ORGANIZATION_APPLICATION'] %>
       response_created: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_CREATED'] %>
       response_updated: <%= ENV['SETTING_ALIYUN_TTS_CODES_RESPONSE_UPDATED'] %>
+    sms:
+      sign_name: <%= ENV['SETTING_ALIYUN_SMS_SIGN_NAME'] %>
+      # true or false
+      with_product_var: <%= ENV['SETTING_ALIYUN_SMS_WITH_PRODUCT_VAR'] %>
+      template_code:
+        verify_code: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_VERIFY_CODE'] %>
+        message:
+          unread: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_MESSAGE_UNREAD'] %>
+          unread_with_url: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_MESSAGE_UNREAD_WITH_URL'] %>
+          involved: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_MESSAGE_INVOLVED'] %>
+        subscription:
+          comment: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_SUBSCRIPTION_COMMENT'] %>
+          response_created: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_SUBSCRIPTION_RESPONSE_CREATED'] %>
+          response_updated: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_SUBSCRIPTION_RESPONSE_UPDATED'] %>
+          organization_application: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_SUBSCRIPTION_ORGANIZATION_APPLICATION'] %>
+          bunch: <%= ENV['SETTING_ALIYUN_SMS_TEMPLATE_CODE_SUBSCRIPTION_BUNCH'] %>
 
   jwt:
     las_vegas: <%= ENV['SETTING_JWT_LAS_VEGAS'] %>
