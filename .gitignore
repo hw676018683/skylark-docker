@@ -3,8 +3,10 @@ log/
 shared/
 tmp/
 etc/ssl/
-etc/nginx/skylark-custom.conf
+etc/nginx/skylark/custom.conf
 
 images/production/skylark*
 
 app.local.env
+
+.env
