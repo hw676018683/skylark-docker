@@ -47,8 +47,7 @@ services:
     volumes:
       - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./etc/nginx/start:/etc/nginx/start
-      - ./etc/nginx/skylark-base.conf:/etc/nginx/skylark/base.conf
-      - ./etc/nginx/skylark-custom.conf:/etc/nginx/skylark/custom.conf
+      - ./etc/nginx/skylark:/etc/nginx/skylark
       - ./etc/nginx/skylark-http.conf.erb:/tmp/skylark-http.conf.erb
       - ./etc/nginx/skylark-https.conf.erb:/tmp/skylark-https.conf.erb
       - ./etc/ssl:/etc/ssl
