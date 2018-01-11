@@ -84,7 +84,7 @@ defaults: &defaults
 
   aliyun:
     access_key_id: <%= ENV['SETTING_ALIYUN_ACCESS_KEY_ID'] %>
-    access_key_secret: <%= ENV['SETTING_ALIYUN_ACCESS_KEY_ID'] %>
+    access_key_secret: <%= ENV['SETTING_ALIYUN_ACCESS_KEY_SECRET'] %>
     called_show_number: <%= ENV['SETTING_ALIYUN_CALLED_SHOW_NUMBER'] %>
     # true or false
     with_product_var: <%= ENV['SETTING_ALIYUN_WITH_PRODUCT_VAR'] %>
