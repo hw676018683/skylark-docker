@@ -5,6 +5,10 @@ set -e
 # wget -O skylark.tar.gz https://github.com/GreenNerd/skylark/archive/$SLP_VERSION.tar.gz
 # echo "Download completed"
 
-echo "Building the production image"
-docker build -t dockerhub.qingcloud.com/skylark/production:$SLP_VERSION .
-docker push dockerhub.qingcloud.com/skylark/production:$SLP_VERSION
+if [[ $SLP_VERSION ]]; then
+  echo "Building the production image"
+  docker build -t dockerhub.qingcloud.com/skylark/production:$SLP_VERSION .
+  docker push dockerhub.qingcloud.com/skylark/production:$SLP_VERSION
+else
+  echo "Please set SLP_VERSION!"
+fi
