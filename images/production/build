@@ -7,8 +7,28 @@ set -e
 
 if [[ $SLP_VERSION ]]; then
   echo "Building the production image"
+
+  git submodule init
+  git submodule update
+
+  cd ./skylark
+  git fetch origin
+  git checkout $SLP_VERSION --quiet
+  echo "checkout to `git describe --tags`"
+  echo "-----------------------"
+
+  cd ..
   docker build -t dockerhub.qingcloud.com/skylark/production:$SLP_VERSION .
   docker push dockerhub.qingcloud.com/skylark/production:$SLP_VERSION
+
+  echo "-----------------------"
+  cd ./skylark
+  git checkout develop --quiet
+  echo "checkout to `git describe --all`"
+  cd ..
+
+  echo "-----------------------"
+  echo "Done!"
 else
   echo "Please set SLP_VERSION!"
 fi

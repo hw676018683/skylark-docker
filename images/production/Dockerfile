@@ -9,8 +9,7 @@ RUN useradd skylark -s /bin/bash -m -U && \
     mkdir -p /var/www/skylark
 
 WORKDIR /var/www/
-COPY skylark.tar.gz /var/www/
-RUN tar xfz skylark.tar.gz --strip-components=1 -C skylark && rm skylark.tar.gz
+COPY ./skylark/* /var/www/skylark/
 
 WORKDIR /var/www/skylark
 RUN chown -R skylark:skylark /var/www/skylark
