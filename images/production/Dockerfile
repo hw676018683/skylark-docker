@@ -15,6 +15,7 @@ WORKDIR /var/www/skylark
 RUN chown -R skylark:skylark /var/www/skylark
 USER skylark
 RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org && \
-    bundle install --deployment --without test development -j4 && \
+    bundle config git.allow_insecure true
+RUN bundle install --deployment --without test development -j4 && \
     find /var/www/skylark/vendor/bundle -name tmp -type d -exec rm -rf {} +
 USER root
