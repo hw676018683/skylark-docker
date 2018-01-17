@@ -1,0 +1,3 @@
+[submodule "skylark-repo"]
+	path = images/production/skylark
+	url = git@github.com:GreenNerd/skylark.git
