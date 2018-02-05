@@ -113,6 +113,10 @@ defaults: &defaults
   jwt:
     las_vegas: <%= ENV['SETTING_JWT_LAS_VEGAS'] %>
 
+  juhe:
+    api_base: <%= ENV['SETTING_JUHE_API_BASE'] %>
+    key: <%= ENV['SETTING_JUHE_KEY'] %>
+
 development:
   <<: *defaults
 
