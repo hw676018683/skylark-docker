@@ -9,7 +9,7 @@ RUN useradd skylark -s /bin/bash -m -U && \
     mkdir -p /var/www/skylark
 
 WORKDIR /var/www/
-COPY ./skylark/* /var/www/skylark/
+COPY ./skylark/ /var/www/skylark/
 
 WORKDIR /var/www/skylark
 RUN chown -R skylark:skylark /var/www/skylark
