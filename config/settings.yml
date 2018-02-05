@@ -21,6 +21,7 @@ defaults: &defaults
       logo: imageView2/1/w/132/h/132/q/85
       welcome: imageMogr2/thumbnail/!360x200r/gravity/Center/crop/360x200
       small_welcome: imageMogr2/thumbnail/!50x50r/gravity/Center/crop/50x50
+      print: imageView2/0/q/100|imageslim
     attachment:
       bucket: <%= ENV['SETTING_QINIU_ATTACHMENT_BUCKET'] %>
       domain: <%= ENV['SETTING_QINIU_ATTACHMENT_DOMAIN'] %>
