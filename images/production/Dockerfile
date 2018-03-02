@@ -14,8 +14,8 @@ COPY ./skylark/ /var/www/skylark/
 WORKDIR /var/www/skylark
 RUN chown -R skylark:skylark /var/www/skylark
 USER skylark
-RUN bundle config mirror.https://rubygems.org https://gems.ruby-china.org && \
-    bundle config github.https true
+RUN bundle config --local mirror.https://rubygems.org https://gems.ruby-china.org && \
+    bundle config --local github.https true
 RUN bundle install --deployment --without test development -j4 && \
     find /var/www/skylark/vendor/bundle -name tmp -type d -exec rm -rf {} +
 USER root
