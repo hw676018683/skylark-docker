@@ -8,6 +8,7 @@ services:
       - app.local.env
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
+      - ./etc/postgresql/postgresql.conf:/etc/postgresql/postgresql.conf
     expose:
       - '5432'
 
