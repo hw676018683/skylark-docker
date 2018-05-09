@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-docker build -t dockerhub.qingcloud.com/skylark/base:2.4.2-ubuntu.1113 .
-docker push dockerhub.qingcloud.com/skylark/base:2.4.2-ubuntu.1113
+docker build -t dockerhub.qingcloud.com/skylark/base:2.5.0-ubuntu.20180509 .
+docker push dockerhub.qingcloud.com/skylark/base:2.5.0-ubuntu.20180509

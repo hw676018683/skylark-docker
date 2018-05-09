@@ -1,25 +1,38 @@
 # NAME:    skylark/base
 # VERSION: release
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 RUN echo 2.0.`date +%Y%m%d` > /VERSION
 
-ENV RUBY_VERSION=2.4.2
+ENV RUBY_VERSION=2.5.0
 
 RUN sed -i 's/archive.ubuntu.com/mirrors.163.com/g' /etc/apt/sources.list
-RUN apt-get update && apt-get -y upgrade
+RUN apt-get update && apt-get install -y apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates \
+                                                      curl \
+                                                      git-core \
+                                                      build-essential \
+                                                      libssl-dev libreadline-dev zlib1g-dev \
+                                                      graphicsmagick \
+                                                      tzdata
 
-RUN apt-get -y install curl \
-                       git-core \
-                       build-essential \
-                       redis-tools \
-                       libpq-dev \
-                       libssl-dev libreadline-dev zlib1g-dev \
-                       nodejs \
-                       graphicsmagick \
-                       tzdata
+RUN echo "Asia/Shanghai" > /etc/timezone && rm /etc/localtime
+RUN dpkg-reconfigure -f noninteractive tzdata
+
+# set locale
+RUN apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
+        && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
+ENV LANG en_US.utf8
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN apt-get update && apt-get -y install redis-tools \
+                                         libpq-dev \
+                                         nodejs \
+                                         yarn
+RUN yarn config set registry 'https://registry.npm.taobao.org'
 
 ADD install-nginx /tmp/install-nginx
 RUN chmod 744 /tmp/install-nginx
