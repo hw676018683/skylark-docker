@@ -16,7 +16,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y ca-certificates \
                                                       build-essential \
                                                       libssl-dev libreadline-dev zlib1g-dev \
                                                       graphicsmagick \
-                                                      tzdata
+                                                      tzdata \
+                                                      libjemalloc-dev
 
 RUN echo "Asia/Shanghai" > /etc/timezone && rm /etc/localtime
 RUN dpkg-reconfigure -f noninteractive tzdata
@@ -50,7 +51,9 @@ RUN echo 'gem: --no-document' >> /usr/local/etc/gemrc && \
     git clone https://github.com/rbenv/ruby-build.git && \
     cd /src/ruby-build && ./install.sh && \
     cd / && rm -rf /src/ruby-build && \
-    ruby-build $RUBY_VERSION /usr/local/
+    RUBY_CONFIGURE_OPTS=--with-jemalloc ruby-build $RUBY_VERSION /usr/local/
+
+RUN ruby -r rbconfig -e "puts RbConfig::CONFIG['LIBS']"
 
 RUN gem install bundler && gem cleanup
 
