@@ -1,7 +1,7 @@
 # NAME:    skylark/base
 # VERSION: release
 
-FROM dockerhub.qingcloud.com/skylark/base:2.3.1-ubuntu.0914
+FROM dockerhub.qingcloud.com/skylark/base:2.5.0-jemalloc-ubuntu
 MAINTAINER Phil Chen '06fahchen@gmail.com'
 
 # Skylark specific bits
