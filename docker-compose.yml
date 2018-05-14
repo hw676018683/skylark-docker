@@ -55,6 +55,7 @@ services:
       - ./tmp/pids:/var/www/pids
       - ./log:/var/www/log
       - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./shared/public/packs:/var/www/skylark/public/packs
       - ./shared/public/exportable_files:/var/www/skylark/public/exportable_files
       - ./shared/public/uploads:/var/www/skylark/public/uploads
     ports:
@@ -84,6 +85,7 @@ services:
       - ./log:/var/www/skylark/log
       - ./tmp/pids:/var/www/pids
       - ./shared/public/assets:/var/www/skylark/public/assets
+      - ./shared/public/packs:/var/www/skylark/public/packs
       - ./shared/public/exportable_files:/var/www/skylark/public/exportable_files
       - ./shared/public/uploads:/var/www/skylark/public/uploads
       - ./shared/uploads:/var/www/skylark/uploads
