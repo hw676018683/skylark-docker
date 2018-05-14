@@ -18,4 +18,5 @@ RUN bundle config --local mirror.https://rubygems.org https://gems.ruby-china.or
     bundle config --local github.https true
 RUN bundle install --deployment --without test development -j4 && \
     find /var/www/skylark/vendor/bundle -name tmp -type d -exec rm -rf {} +
+RUN NODE_ENV=production bin/yarn install
 USER root
