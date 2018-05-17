@@ -2,7 +2,6 @@ defaults: &defaults
   host: <%= ENV['REDIS_HOST'] %>
   port: <%= ENV['REDIS_PORT'] %>
   dbs:
-    mini_profiler: 1
     verify_code_service: 2
     model: 5
     sidekiq: 12

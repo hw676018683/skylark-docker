@@ -35,11 +35,6 @@ defaults: &defaults
         domain: <%= ENV['SETTING_QINIU_MATERIAL_IMAGE_DOMAIN'] %>
         size: <%= ENV['SETTING_QINIU_MATERIAL_IMAGE_SIZE'] %>
 
-  slack_notifier:
-    webhook_url: <%= ENV['SETTING_SLACK_NOTIFIER_WEBHOOK_URL'] %>
-    channel: <%= ENV['SETTING_SLACK_NOTIFIER_CHANNEL'] %>
-    username: <%= ENV['SETTING_SLACK_NOTIFIER_USERNAME'] %>
-
   response:
     async_import_min: <%= ENV['SETTING_RESPONSE_ASYNC_IMPORT_MIN'] %>
     async_export_min: <%= ENV['SETTING_RESPONSE_ASYNC_EXPORT_MIN'] %>
