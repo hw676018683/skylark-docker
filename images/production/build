@@ -5,21 +5,32 @@ set -e
 # wget -O skylark.tar.gz https://github.com/GreenNerd/skylark/archive/$SLP_VERSION.tar.gz
 # echo "Download completed"
 
+build_it() {
+  cd ./skylark
+
+  git checkout $1 --quiet
+  echo "checkout to `git describe --tags`"
+  echo "-----------------------"
+
+  cd ..
+  docker build -t dockerhub.qingcloud.com/skylark/production:$1 .
+  docker push dockerhub.qingcloud.com/skylark/production:$1
+
+  echo "----------------------------------"
+  echo "Pushed $1 to docker dockerhub"
+  echo "++++++++++++++++++++++++++++++++++"
+}
+
 if [[ $SLP_VERSION ]]; then
   echo "Building the production image"
 
   git submodule init
   git submodule update
 
-  cd ./skylark
-  git fetch origin
-  git checkout $SLP_VERSION --quiet
-  echo "checkout to `git describe --tags`"
-  echo "-----------------------"
+  git fetch
 
-  cd ..
-  docker build -t dockerhub.qingcloud.com/skylark/production:$SLP_VERSION .
-  docker push dockerhub.qingcloud.com/skylark/production:$SLP_VERSION
+  build_it $SLP_VERSION
+  build_it "gxzh-$SLP_VERSION"
 
   echo "-----------------------"
   cd ./skylark
