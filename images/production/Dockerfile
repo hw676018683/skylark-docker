@@ -11,6 +11,10 @@ RUN chown -R skylark:skylark /var/www/skylark
 USER skylark
 WORKDIR /var/www/skylark
 
+COPY ./skylark/vendor/bundle/ /var/www/skylark/vendor/bundle/
+COPY ./skylark/node_modules/ /var/www/skylark/node_modules/
 COPY ./skylark/ /var/www/skylark/
 
 USER root
+
+RUN rm -rf /var/www/skylark/spec/*
