@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+cd ./images/production/skylark
+git pull origin tcyx-fork
+git checkout tcyx-fork
+
+head_sha=$(git rev-parse --short HEAD)
+version=$(cat version)
+export VERSION="$version-$head_sha"
+
+cd ..
+
+./prepare/run
+./build
+
+ssh skylark@110.185.102.13 -tt -- "\
+cd /var/skylark;\
+echo 'SLP_VERSION=$VERSION' > .env;\
+./scripts/update
+"
