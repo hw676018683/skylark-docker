@@ -2,8 +2,8 @@
 set -e
 
 cd ./images/production/skylark
-git fetch origin tcyx-fork
-git checkout origin/tcyx-fork
+git fetch origin gxzh
+git checkout origin/gxzh
 
 head_sha=$(git rev-parse --short HEAD)
 version=$(cat version)
@@ -14,7 +14,7 @@ cd ..
 ./prepare/run
 ./build
 
-ssh skylark@110.185.102.13 -tt -- "\
+ssh root@gxzh.cdht.gov.cn -tt -- "\
 cd /var/skylark;\
 echo 'SLP_VERSION=$VERSION' > .env;\
 ./scripts/update

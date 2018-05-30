@@ -16,5 +16,3 @@ COPY ./skylark/node_modules/ /var/www/skylark/node_modules/
 COPY ./skylark/ /var/www/skylark/
 
 USER root
-
-RUN rm -rf /var/www/skylark/spec/*
