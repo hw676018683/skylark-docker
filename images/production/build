@@ -2,5 +2,5 @@
 set -e
 
 echo "Building the production image"
-docker build -t dockerhub.qingcloud.com/skylark/production:$VERSION .
-docker push dockerhub.qingcloud.com/skylark/production:$VERSION
+docker build -t registry.cn-hangzhou.aliyuncs.com/skylark/production:$VERSION .
+docker push registry.cn-hangzhou.aliyuncs.com/skylark/production:$VERSION
