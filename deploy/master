@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+cd ./images/production/skylark
+git fetch origin master
+git checkout origin/master
+
+head_sha=$(git rev-parse --short HEAD)
+version=$(cat version)
+export VERSION="$version-$head_sha"
+
+cd ..
+
+./prepare/run
+./build
+
+ssh -p 12346 root@47.98.158.107 -tt -- "\
+cd /var/skylark;\
+echo 'SLP_VERSION=$VERSION' > .env;\
+./scripts/update
+"
