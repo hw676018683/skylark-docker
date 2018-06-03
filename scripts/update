@@ -2,6 +2,6 @@
 set -eux
 
 docker-compose build
-docker-compose exec app bundle exec rails db:migrate
-docker-compose exec app bundle exec rails assets:precompile
+docker-compose run app bundle exec rails db:migrate
+docker-compose run app bundle exec rails assets:precompile
 docker-compose up -d
