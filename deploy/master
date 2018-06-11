@@ -6,7 +6,7 @@ git fetch origin master
 git checkout origin/master
 
 head_sha=$(git rev-parse --short HEAD)
-version=$(cat version)
+version=$(cat VERSION)
 export VERSION="$version-$head_sha"
 
 cd ..

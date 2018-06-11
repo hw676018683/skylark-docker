@@ -6,7 +6,7 @@ git fetch origin gxzh
 git checkout origin/gxzh
 
 head_sha=$(git rev-parse --short HEAD)
-version=$(cat version)
+version=$(cat VERSION)
 export VERSION="$version-$head_sha"
 
 cd ..
