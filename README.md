@@ -4,6 +4,7 @@ Docker deployment of [Skylark](https://skylarkly.com).
 # Installation
 
 ## Install Docker / Git
+Get in China https://get.daocloud.io/ .
 ```bash
 wget -qO- https://get.docker.com/ | sh
 ```
