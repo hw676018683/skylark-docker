@@ -4,4 +4,4 @@ set -eux
 docker-compose build
 docker-compose run app bundle exec rails db:migrate
 docker-compose run app bundle exec rails assets:precompile
-docker-compose restart app sidekiq
+docker-compose up -d

@@ -8,3 +8,4 @@ production:
   - [default, 2]
   - [cache, 1]
   - [chewy, 1]
+  - [webhook, 1]
