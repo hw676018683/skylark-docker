@@ -8,6 +8,5 @@ etc/nginx/skylark/custom.conf
 images/production/skylark*
 
 app.local.env
-elasticsearch.local.env
 
 .env
