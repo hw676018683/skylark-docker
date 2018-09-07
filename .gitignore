@@ -1,5 +1,6 @@
 data/
 log/
+old_log/
 shared/
 tmp/
 etc/ssl/

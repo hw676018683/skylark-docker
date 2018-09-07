@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -eu
+
+docker run -d \
+  -v $(pwd)/log:/logs \
+  -v $(pwd)/old_log:/old_logs \
+  -e "LOGROTATE_INTERVAL=daily" \
+  -e "LOGS_DIRECTORIES=/logs" \
+  -e "LOGROTATE_COPIES=10" \
+  -e "LOGROTATE_COMPRESSION=compress" \
+  -e "LOGROTATE_OLDDIR=/old_logs" \
+  -e "LOGROTATE_LOGFILE=/old_logs/logrotatecron.log" \
+  -e "LOGROTATE_STATUSFILE=/old_logs/logrotate.status" \
+  -e "TZ=Asia/Shanghai" \
+  --restart on-failure:1 \
+  blacklabelops/logrotate
