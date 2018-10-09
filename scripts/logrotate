@@ -4,9 +4,9 @@ set -eu
 docker run -d \
   -v $(pwd)/log:/logs \
   -v $(pwd)/old_log:/old_logs \
-  -e "LOGROTATE_INTERVAL=daily" \
+  -e "LOGROTATE_INTERVAL=weekly" \
   -e "LOGS_DIRECTORIES=/logs" \
-  -e "LOGROTATE_COPIES=10" \
+  -e "LOGROTATE_COPIES=12" \
   -e "LOGROTATE_COMPRESSION=compress" \
   -e "LOGROTATE_OLDDIR=/old_logs" \
   -e "LOGROTATE_LOGFILE=/old_logs/logrotatecron.log" \
