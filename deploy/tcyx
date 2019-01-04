@@ -14,7 +14,7 @@ cd ..
 ./prepare/run
 ./build
 
-ssh skylark@110.185.102.13 -tt -- "\
+ssh skylark@110.185.102.13 -p 22 -o ProxyCommand='ssh -p 22 rails@beta.skylarkly.com -W %h:%p' -tt -- "\
 cd /var/skylark;\
 echo 'SLP_VERSION=$VERSION' > .env;\
 ./scripts/update
