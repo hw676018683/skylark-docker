@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+cd ./images/production/skylark
+git fetch origin fork-tianyi
+git checkout origin/fork-tianyi
+
+head_sha=$(git rev-parse --short HEAD)
+version=$(cat VERSION)
+export VERSION="$version-$head_sha"
+
+cd ..
+
+./prepare/run
+./build
+
+ssh weblogin@222.211.78.87 -p 27002 -tt -- "\
+cd /var/skylark;\
+echo 'SLP_VERSION=$VERSION' > .env;\
+./scripts/update
+"
