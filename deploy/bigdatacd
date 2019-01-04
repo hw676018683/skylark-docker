@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+cd ./images/production/skylark
+git fetch origin bigdatacd_fork
+git checkout origin/bigdatacd_fork
+
+head_sha=$(git rev-parse --short HEAD)
+version=$(cat VERSION)
+export VERSION="$version-$head_sha"
+
+cd ..
+
+./prepare/run
+./build
+
+ssh root@oa.bigdatacd.com -tt -- "\
+cd /var/skylark;\
+echo 'SLP_VERSION=$VERSION' > .env;\
+./scripts/update
+"
